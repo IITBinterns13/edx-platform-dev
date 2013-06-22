@@ -105,7 +105,7 @@
   </section>
 
   <%
-    exam_help_href = "mailto:exam-help@edx.org?subject=Pearson VUE Exam - " + get_course_about_section(course, 'university') + " - " + course.number
+    exam_help_href = "mailto:${settings.EXAM_HELP_EMAIL}?subject=Pearson VUE Exam - " + get_course_about_section(course, 'university') + " - " + course.number
   %>
 
   % if registration:
@@ -375,7 +375,7 @@
             <li class="item">${registration.testcenter_user.upload_error_message}.</li>
           </ul>
 
-          <p class="action">If the error is not correctable by revising your demographic information, please <a class="contact-link" href="${exam_help_href}">contact edX at exam-help@edx.org</a>.</p>
+          <p class="action">If the error is not correctable by revising your demographic information, please <a class="contact-link" href="${exam_help_href}">contact edX at ${settings.EXAM_HELP_EMAIL}</a>.</p>
         </li>
         % endif
 
@@ -403,7 +403,7 @@
           <h4 class="title">Accommodations Request</h4>
           <p class="details">Your requested accommodations have been reviewed and processed. You are allowed no accommodations.</p>
 
-          <p class="action">Please <a class="contact-link" href="${exam_help_href}">contact edX at exam-help@edx.org</a> if you have any questions.</p>
+          <p class="action">Please <a class="contact-link" href="${exam_help_href}">contact ${settings.PLATFORM_NAME} at ${settings.EXAM_HELP_EMAIL}</a> if you have any questions.</p>
         </li>
         % endif
 
@@ -429,7 +429,7 @@
             <li class="item">${registration.upload_error_message}</li>
           </ul>
 
-          <p class="action">Please <a class="contact-link" href="${exam_help_href}">contact edX at exam-help@edx.org</a>.</p>
+          <p class="action">Please <a class="contact-link" href="${exam_help_href}">contact ${settings.PLATFORM_NAME} at ${settings.EXAM_HELP_EMAIL}</a>.</p>
         </li>
         % endif
       </ol>
@@ -474,7 +474,7 @@
 
     <div class="details details-contact">
       <h4>Questions</h4>
-      <p>If you have a specific question pertaining to your registration, you may <a class="contact-link" href="${exam_help_href}">contact edX at exam-help@edx.org</a>.</p>
+      <p>If you have a specific question pertaining to your registration, you may <a class="contact-link" href="${exam_help_href}">contact ${settings.PLATFORM_NAME} at ${settings.EXAM_HELP_EMAIL}</a>.</p>
     </div>
   </aside>
 </section>

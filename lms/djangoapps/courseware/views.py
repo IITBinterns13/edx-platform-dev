@@ -17,7 +17,7 @@ from django.views.decorators.cache import cache_control
 
 from courseware import grades
 from courseware.access import has_access
-from courseware.courses import (get_courses, get_course_with_access,
+from courseware.courses import (get_courses, get_course_with_access,get_course_about_section,
                                 get_courses_by_university, sort_by_announcement)
 import courseware.tabs as tabs
 from courseware.masquerade import setup_masquerade
@@ -35,7 +35,7 @@ from xmodule.modulestore.exceptions import InvalidLocationError, ItemNotFoundErr
 from xmodule.modulestore.search import path_to_location
 
 import comment_client
-
+from courseware.search import *;
 log = logging.getLogger("mitx.courseware")
 
 template_imports = {'urllib': urllib}
@@ -72,10 +72,61 @@ def courses(request):
     """
     courses = get_courses(request.user, request.META.get('HTTP_HOST'))
     courses = sort_by_announcement(courses)
+    universities = []
+    for course in courses:
+        university = get_course_about_section(course,'university')
+        if not university in universities:
+            universities.append(university)
+    universities.sort()
+    return render_to_response("courseware/courses.html", {'courses': courses,'universities':universities})
 
-    return render_to_response("courseware/courses.html", {'courses': courses})
+#@ensure_csrf_cookie
+@cache_if_anonymous
+def courses_search(request):
+    """
+    Render "find courses" page.  The course selection work is done in courseware.courses.
+    """
+    if request.is_ajax():
+        query_string=""
+        courses=[]
+        query_string = request.GET['search_string']
+        if query_string is not None:
+            print "----------------------------------"+query_string+"\n"
+            entry_query=normalize_query(query_string)
+            allCourses = get_courses(request.user, request.META.get('HTTP_HOST'))
+            for course in allCourses:
+                title=get_course_about_section(course,'title').lower()
+                flag=True
+                for query in entry_query:
+                    if not query.lower() in title:
+                        flag=False
+                        break
+                if flag:
+                    courses.append(course)
+            courses = sort_by_announcement(courses)
+            print "--------------------------------------------------------------\n"
+            print courses
+            print "\n----------------------------------------------------"
+            if courses:
+                return render_to_response("courseware/courses_search.html", {'courses': courses})
+            else:
+                return HttpResponse("No Courses Found")
 
-
+def university_search(request,org_id=""):
+    if request.is_ajax():
+        query_university=org_id
+        courses = []
+        allCourses = get_courses(request.user, request.META.get('HTTP_HOST'))
+        if query_university is not None:
+            for course in allCourses:
+                university=get_course_about_section(course,'university')
+                if query_university.lower() in university.lower():
+                    courses.append(course) 
+        if courses:
+            return render_to_response("courseware/courses_search.html",{'courses':courses})
+        else:
+            return HttpResponse("No Courses Found")
+        
 def render_accordion(request, course, chapter, section, model_data_cache):
     """
     Draws navigation bar. Takes current position in accordion as
@@ -90,7 +141,7 @@ def render_accordion(request, course, chapter, section, model_data_cache):
 
     # grab the table of contents
     user = User.objects.prefetch_related("groups").get(id=request.user.id)
-    request.user = user	# keep just one instance of User
+    request.user = user # keep just one instance of User
     toc = toc_for_course(user, request, course, chapter, section, model_data_cache)
 
     context = dict([('toc', toc),
@@ -99,8 +150,6 @@ def render_accordion(request, course, chapter, section, model_data_cache):
                     ('show_timezone', course.show_timezone)] + template_imports.items())
     return render_to_string('courseware/accordion.html', context)
 
-
-def get_current_child(xmodule):
     """
     Get the xmodule.position's display item of an xmodule that has a position and
     children.  If xmodule has no position or is out of bounds, return the first child.
@@ -262,7 +311,7 @@ def index(request, course_id, chapter=None, section=None,
      - HTTPresponse
     """
     user = User.objects.prefetch_related("groups").get(id=request.user.id)
-    request.user = user	# keep just one instance of User
+    request.user = user # keep just one instance of User
     course = get_course_with_access(user, course_id, 'load', depth=2)
     staff_access = has_access(user, course, 'staff')
     registered = registered_for_course(course, user)

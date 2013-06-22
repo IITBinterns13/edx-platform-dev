@@ -120,8 +120,8 @@ VIRTUAL_UNIVERSITIES = []
 # Organization that contain other organizations
 META_UNIVERSITIES = {'UTx': ['UTAustinX']}
 
-COMMENTS_SERVICE_KEY = "PUT_YOUR_API_KEY_HERE"
-
+COMMENTS_SERVICE_KEY = "85920908f28904ed733fe576320db18cabd7b6cd"
+COMMENTS_SERVICE_URL = "http://localhost:4567"
 ############################## Course static files ##########################
 if os.path.isdir(DATA_DIR):
     # Add the full course repo if there is no static directory
@@ -165,7 +165,7 @@ MITX_FEATURES['USE_XQA_SERVER'] = 'http://xqa:server@content-qa.mitx.mit.edu/xqa
 
 INSTALLED_APPS += ('lms_migration',)
 
-LMS_MIGRATION_ALLOWED_IPS = ['127.0.0.1']
+LMS_MIGRATION_ALLOWED_IPS = ['127.0.0.1','10.105.22.27']
 
 ################################ OpenID Auth #################################
 
@@ -197,7 +197,7 @@ CELERY_ALWAYS_EAGER = True
 INSTALLED_APPS += ('debug_toolbar',)
 MIDDLEWARE_CLASSES += ('django_comment_client.utils.QueryCountDebugMiddleware',
                        'debug_toolbar.middleware.DebugToolbarMiddleware',)
-INTERNAL_IPS = ('127.0.0.1',)
+INTERNAL_IPS = ('127.0.0.1','10.105.22.27')
 
 DEBUG_TOOLBAR_PANELS = (
    'debug_toolbar.panels.version.VersionDebugPanel',

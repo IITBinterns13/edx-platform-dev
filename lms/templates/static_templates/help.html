@@ -3,7 +3,7 @@
 
 <%namespace name='static' file='../static_content.html'/>
 
-<%block name="title"><title>edX Help</title></%block>
+<%block name="title"><title>${settings.PLATFORM_NAME} Help</title></%block>
 
 <%block name="js_extra">
 <script src="${static.url('js/help.js')}"></script>
@@ -16,17 +16,17 @@
   <section class="questions">
     <section class="responses">
       <section id="edx_basics_faq" class="category">
-        <h2>edX Basics</h2>
+        <h2>${settings.PLATFORM_NAME} Basics</h2>
         <article class="response">
           <h3 class="question">How do I sign up to take a class?</h3>
           <div class ="answer" id="edx_basics_faq_answer_0">
-            <p>Simply create an edX account (it's free) and then register for the course of your choice (also free). Follow the prompts on the edX website.</p>
+            <p>Simply create an ${settings.PLATFORM_NAME} account (it's free) and then register for the course of your choice (also free). Follow the prompts on the ${settings.PLATFORM_NAME} website.</p>
           </div>
         </article>
         <article class="response">
           <h3 class="question">What does it cost to take a class? Is this really free?</h3>
           <div class ="answer" id="edx_basics_faq_answer_1">
-            <p>EdX courses are free for everyone. All you need is an Internet connection.</p>
+            <p>${settings.PLATFORM_NAME} courses are free for everyone. All you need is an Internet connection.</p>
           </div>
         </article>
         <article class="response">
@@ -36,21 +36,21 @@
           </div>
         </article>
         <article class="response">
-          <h3 class="question">Who can take an edX course?</h3>
+          <h3 class="question">Who can take an ${settings.PLATFORM_NAME} course?</h3>
           <div class ="answer" id="edx_basics_faq_answer_3">
-            <p>You, your mom, your little brother, your grandfather -- anyone with Internet access can take an edX course. Free.</p>
+            <p>You, your mom, your little brother, your grandfather -- anyone with Internet access can take an ${settings.PLATFORM_NAME} course. Free.</p>
           </div>
         </article>
         <article class="response">
           <h3 class="question">Are the courses only offered in English?</h3>
           <div class ="answer" id="edx_basics_faq_answer_4">
-            <p>Some edX courses include a translation of the lecture in the text bar to the right of the video. Some have the specific option of requesting a course in other languages. Please check your course to determine foreign language options.</p>
+            <p>Some ${settings.PLATFORM_NAME} courses include a translation of the lecture in the text bar to the right of the video. Some have the specific option of requesting a course in other languages. Please check your course to determine foreign language options.</p>
           </div>
         </article>
         <article class="response">
           <h3 class="question">When will there be more courses on other subjects?</h3>
           <div class ="answer" id="edx_basics_faq_answer_5">
-            <p>We are continually reviewing and creating courses to add to the edX platform. Please check the website for future course announcements. You can also "friend" edX on Facebook – you’ll receive updates and announcements.</p>
+            <p>We are continually reviewing and creating courses to add to the ${settings.PLATFORM_NAME} platform. Please check the website for future course announcements. You can also "friend" ${settings.PLATFORM_NAME} on Facebook – you’ll receive updates and announcements.</p>
           </div>
         </article>
         <article class="response">
@@ -74,7 +74,7 @@
         <article class="response">
           <h3 class="question">What happens if I have to quit a course? Are there any penalties? Will I be able to take another course in the future?</h3>
           <div class ="answer" id="edx_basics_faq_answer_10">
-            <p>You may unregister from an edX course at anytime, there are absolutely no penalties associated with incomplete edX studies, and you may register for the same course (provided we are still offering it) at a later time.</p>
+            <p>You may unregister from an ${settings.PLATFORM_NAME} course at anytime, there are absolutely no penalties associated with incomplete ${settings.PLATFORM_NAME} studies, and you may register for the same course (provided we are still offering it) at a later time.</p>
           </div>
         </article>
       </section>
@@ -102,43 +102,43 @@
         <article class="response">
           <h3 class="question"> Can I download the book for my course?</h3>
           <div class ="answer" id="classes_faq_answer_3">
-            <p>EdX book content may only be viewed within the browser, and downloading it violates copyright laws. If you need or want a hard copy of the book, we recommend that you purchase a copy.</p>
+            <p>${settings.PLATFORM_NAME} book content may only be viewed within the browser, and downloading it violates copyright laws. If you need or want a hard copy of the book, we recommend that you purchase a copy.</p>
           </div>
         </article>
         <article class="response">
           <h3 class="question">Can I take more than one course at a time?</h3>
           <div class ="answer" id="classes_faq_answer_4">
-            <p>You may take multiple edX courses, however we recommend checking the requirements on each course description page to determine your available study hours and the demands of the intended courses.</p>
+            <p>You may take multiple ${settings.PLATFORM_NAME} courses, however we recommend checking the requirements on each course description page to determine your available study hours and the demands of the intended courses.</p>
           </div>
         </article>
         <article class="response">
-          <h3 class="question">How do I log in to take an edX class?</h3>
+          <h3 class="question">How do I log in to take an ${settings.PLATFORM_NAME} class?</h3>
           <div class ="answer" id="classes_faq_answer_5">
-            <p>Once you sign up for a course and activate your account, click on the "Log In" button on the edx.org home page. You will need to type in your email address and edX password each time you log in.</p>
+            <p>Once you sign up for a course and activate your account, click on the "Log In" button on the ${settings.SITE_NAME} home page. You will need to type in your email address and ${settings.PLATFORM_NAME} password each time you log in.</p>
           </div>
         </article>
         <article class="response">
           <h3 class="question">What time is the class?</h3>
           <div class ="answer" id="classes_faq_answer_6">
-            <p>EdX classes take place at your convenience. Prefer to sleep in and study late? No worries. Videos and problem sets are available 24 hours a day, which means you can watch video and complete work whenever you have spare time. You simply log in to your course via the Internet and work through the course material, one week at a time.</p>
+            <p>${settings.PLATFORM_NAME} classes take place at your convenience. Prefer to sleep in and study late? No worries. Videos and problem sets are available 24 hours a day, which means you can watch video and complete work whenever you have spare time. You simply log in to your course via the Internet and work through the course material, one week at a time.</p>
           </div>
         </article>
         <article class="response">
           <h3 class="question">If I miss a week, how does this affect my grade?</h3>
           <div class ="answer" id="classes_faq_answer_7">
-            <p>It is certainly possible to pass an edX course if you miss a week; however, coursework is progressive, so you should review and study what you may have missed. You can check your progress dashboard in the course to see your course average along the way if you have any concerns.</p>
+            <p>It is certainly possible to pass an ${settings.PLATFORM_NAME} course if you miss a week; however, coursework is progressive, so you should review and study what you may have missed. You can check your progress dashboard in the course to see your course average along the way if you have any concerns.</p>
           </div>
         </article>
         <article class="response">
           <h3 class="question">How can I meet/find other students?</h3>
           <div class ="answer" id="classes_faq_answer_8">
-            <p>All edX courses have Discussion Forums where you can chat with and help each other within the framework of the Honor Code.</p>
+            <p>All ${settings.PLATFORM_NAME} courses have Discussion Forums where you can chat with and help each other within the framework of the Honor Code.</p>
           </div>
         </article>
         <article class="response">
           <h3 class="question">How can I talk to professors, fellows and teaching assistants?</h3>
           <div class ="answer" id="classes_faq_answer_9">
-            <p>The Discussion Forums are the best place to reach out to the edX teaching team for your class, and you don’t have to wait in line or rearrange your schedule to fit your professor’s – just post your questions. The response isn’t always immediate, but it’s usually pretty darned quick.</p>
+            <p>The Discussion Forums are the best place to reach out to the ${settings.PLATFORM_NAME} teaching team for your class, and you don’t have to wait in line or rearrange your schedule to fit your professor’s – just post your questions. The response isn’t always immediate, but it’s usually pretty darned quick.</p>
           </div>
         </article>
 
@@ -151,7 +151,7 @@
         <article class="response">
           <h3 class="question">Can I re-take a course?</h3>
           <div class ="answer" id="classes_faq_answer_11">
-            <p>Good news: there are unlimited "mulligans" in edX. You may re-take edX courses as often as you wish. Your performance in any particular offering of a course will not effect your standing in future offerings of any edX course, including future offerings of the same course.</p>
+            <p>Good news: there are unlimited "mulligans" in ${settings.PLATFORM_NAME}. You may re-take ${settings.PLATFORM_NAME} courses as often as you wish. Your performance in any particular offering of a course will not effect your standing in future offerings of any ${settings.PLATFORM_NAME} course, including future offerings of the same course.</p>
           </div>
         </article>
         <article class="response">
@@ -169,7 +169,7 @@
         <article class="response">
           <h3 class="question">Will the same courses be offered again in the future?</h3>
           <div class ="answer" id="classes_faq_answer_14">
-            <p>Existing edX courses will be re-offered, and more courses added.</p>
+            <p>Existing ${settings.PLATFORM_NAME} courses will be re-offered, and more courses added.</p>
           </div>
         </article>
       </section>
@@ -179,30 +179,29 @@
           <h2>Certificates & Credits</h2>
 
         <article class="response">
-          <h3 class="question">Will I get a certificate for taking an edX course?</h3>
+          <h3 class="question">Will I get a certificate for taking an ${settings.PLATFORM_NAME} course?</h3>
           <div class ="answer" id="certificates_and_credits_faq_answer_0">
             <p>Online learners who receive a passing grade for a course will receive a certificate
-            of mastery at the discretion of edX and the underlying X University that offered
-            the course. For example, a certificate of mastery for MITx’s 6.002x Circuits &amp;
-            Electronics will come from edX and MITx.</p>
+            of mastery at the discretion of ${settings.PLATFORM_NAME} and the underlying X University that offered
+            the course. For example, a certificate of mastery for ${settings.PLATFORM_NAME}’s ${settings.COURSE_DEFAULT} ${settings.COURSE_SETTINGS[settings.COURSE_DEFAULT]["title"]}  will come from ${settings.PLATFORM_NAME}</p>
             <p>If you passed the course, your certificate of mastery will be delivered online
-            through edx.org. So be sure to check your email in the weeks following the final
+            through ${settings.SITE_NAME}. So be sure to check your email in the weeks following the final
             grading – you will be able to download and print your certificate. Note: At this
-            time, edX is holding certificates for learners connected with Cuba, Iran, Syria
+            time, ${settings.PLATFORM_NAME} is holding certificates for learners connected with Cuba, Iran, Syria
             and Sudan pending confirmation that the issuance is in compliance with U.S.
             embargoes.</p>
           </div>
         </article>
         <article class="response">
-          <h3 class="question">How are edX certificates delivered?</h3>
+          <h3 class="question">How are ${settings.PLATFORM_NAME} certificates delivered?</h3>
           <div class ="answer" id="certificates_and_credits_faq_answer_1">
-            <p>EdX certificates are delivered online through edx.org. So be sure to check your email in the weeks following the final grading – you will be able to download and print your certificate.</p>
+            <p>${settings.PLATFORM_NAME} certificates are delivered online through ${settings.SITE_NAME}. So be sure to check your email in the weeks following the final grading – you will be able to download and print your certificate.</p>
           </div>
         </article>
         <article class="response">
           <h3 class="question">What is the difference between a proctored certificate and an honor code certificate?</h3>
           <div class ="answer" id="certificates_and_credits_faq_answer_2">
-            <p>A proctored certificate is given to students who take and pass an exam under proctored conditions. An honor-code certificate is given to students who have completed all of the necessary online coursework associated with a course and have signed <link> the edX honor code </link>.</p>
+            <p>A proctored certificate is given to students who take and pass an exam under proctored conditions. An honor-code certificate is given to students who have completed all of the necessary online coursework associated with a course and have signed <link> the ${settings.PLATFORM_NAME} honor code </link>.</p>
           </div>
         </article>
         <article class="response">
@@ -220,23 +219,23 @@
         <article class="response">
           <h3 class="question">How can I talk to professors, fellows and teaching assistants?</h3>
           <div class ="answer" id="certificates_and_credits_faq_answer_5">
-            <p>The Discussion Forums are the best place to reach out to the edX teaching team for your class, and you don’t have to wait in line or rearrange your schedule to fit your professor’s – just post your questions. The response isn’t always immediate, but it’s usually pretty darned quick.</p>
+            <p>The Discussion Forums are the best place to reach out to the ${settings.PLATFORM_NAME} teaching team for your class, and you don’t have to wait in line or rearrange your schedule to fit your professor’s – just post your questions. The response isn’t always immediate, but it’s usually pretty darned quick.</p>
           </div>
         </article>
         <article class="response">
-          <h3 class="question">The only certificates distributed with grades by edX were for the initial prototype course.</h3>
+          <h3 class="question">The only certificates distributed with grades by ${settings.PLATFORM_NAME} were for the initial prototype course.</h3>
           <div class ="answer" id="certificates_and_credits_faq_answer_6">
-            <p>You may unregister from an edX course at anytime, there are absolutely no penalties associated with incomplete edX studies, and you may register for the same course (provided we are still offering it) at a later time.</p>
+            <p>You may unregister from an ${settings.PLATFORM_NAME} course at anytime, there are absolutely no penalties associated with incomplete ${settings.PLATFORM_NAME} studies, and you may register for the same course (provided we are still offering it) at a later time.</p>
           </div>
         </article>
         <article class="response">
-          <h3 class="question">Will my university accept my edX coursework for credit?</h3>
+          <h3 class="question">Will my university accept my ${settings.PLATFORM_NAME} coursework for credit?</h3>
           <div class ="answer" id="certificates_and_credits_faq_answer_7">
-            <p>Each educational institution makes its own decision regarding whether to accept edX coursework for credit. Check with your university for its policy.</p>
+            <p>Each educational institution makes its own decision regarding whether to accept ${settings.PLATFORM_NAME} coursework for credit. Check with your university for its policy.</p>
           </div>
         </article>
         <article class="response">
-          <h3 class="question">I lost my edX certificate – can you resend it to me?</h3>
+          <h3 class="question">I lost my ${settings.PLATFORM_NAME} certificate – can you resend it to me?</h3>
           <div class ="answer" id="certificates_and_credits_faq_answer_8">
             <p>Please log back in to your account to find certificates from the same profile page where they were originally posted. You will be able to re-print your certificate from there.</p>
           </div>
@@ -244,17 +243,17 @@
       </section>
 
       <section id="open_source_faq" class="category">
-        <h2>edX & Open Source</h2>
+        <h2>${settings.PLATFORM_NAME} & Open Source</h2>
         <article class="response">
           <h3 class="question">What’s open source?</h3>
           <div class ="answer" id="open_source_faq_answer_0">
-            <p>Open source is a philosophy that generally refers to making software freely available for use or modification as users see fit. In exchange for use of the software, users generally add their contributions to the software, making it a public collaboration. The edX platform will be made available as open source code in order to allow world talent to improve and share it on an ongoing basis.</p>
+            <p>Open source is a philosophy that generally refers to making software freely available for use or modification as users see fit. In exchange for use of the software, users generally add their contributions to the software, making it a public collaboration. The ${settings.PLATFORM_NAME} platform will be made available as open source code in order to allow world talent to improve and share it on an ongoing basis.</p>
           </div>
         </article>
         <article class="response">
           <h3 class="question">When/how can I get the open-source platform technology?</h3>
           <div class ="answer" id="open_source_faq_answer_1">
-            <p>We are still building the edX technology platform and will be making announcements in the future about its availability.</p>
+            <p>We are still building the ${settings.PLATFORM_NAME} technology platform and will be making announcements in the future about its availability.</p>
           </div>
         </article>
       </section>
@@ -295,7 +294,7 @@
         <article class="response">
           <h3 class="question">Can I delete my account?</h3>
           <div class ="answer" id="other_help_faq_answer_4">
-            <p>There’s no need to delete you account. An old, unused edX account with no course completions associated with it will disappear.</p>
+            <p>There’s no need to delete you account. An old, unused ${settings.PLATFORM_NAME} account with no course completions associated with it will disappear.</p>
           </div>
         </article>
         <article class="response">
@@ -311,9 +310,9 @@
           </div>
         </article>
         <article class="response">
-          <h3 class="question">How can I help edX?</h3>
+          <h3 class="question">How can I help ${settings.PLATFORM_NAME}?</h3>
           <div class ="answer" id="edx_basics_faq_answer_6">
-            <p>You may not realize it, but just by taking a course you are helping edX. That’s because the edX platform has been specifically designed to not only teach, but also gather data about learning. EdX will utilize this data to find out how to improve education online and on-campus.</p>
+            <p>You may not realize it, but just by taking a course you are helping ${settings.PLATFORM_NAME}. That’s because the ${settings.PLATFORM_NAME} platform has been specifically designed to not only teach, but also gather data about learning. ${settings.PLATFORM_NAME} will utilize this data to find out how to improve education online and on-campus.</p>
           </div>
         </article>
 
@@ -322,10 +321,10 @@
     </section>
 
     <nav class="categories">
-      <a href="#edx_basics_faq">edX Basics</a>
+      <a href="#edx_basics_faq">${settings.PLATFORM_NAME} Basics</a>
       <a href="#classes_faq">The Classes</a>
       <a href="#certificates_and_credits_faq">Certificates and Credits</a>
-      <a href="#open_source_faq">edX & Open source</a>
+      <a href="#open_source_faq">${settings.PLATFORM_NAME} & Open source</a>
       <a href="#other_help_faq">Other Help Questions - Account Questions</a>
     </nav>
 

@@ -24,10 +24,10 @@
     </div>
   </header>
 
-  <section class="container">
+  <section class="container" id="container" style="min-height:400px; height:auto !important; height:400px;" >
     ## I'm removing this for now since we aren't using it for the fall.
-    ## <%include file="course_filter.html" />
-    <section class="courses">
+    <%include file="course_filter.html" />
+    <section class="courses" id="courses">
       <ul class="courses-listing">
         %for course in courses:
         <li class="courses-listing-item">
