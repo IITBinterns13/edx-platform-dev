@@ -155,7 +155,7 @@
     %if news:
     <article class="news-carousel">
       <header>
-        <h4>edX News</h4>
+        <h4>${settings.PLATFORM_NAME} News</h4>
         <nav class="page-dots">
           <ol>
             <li><a href="#" class="page-dot current"></a></li>
@@ -256,7 +256,7 @@
                     % endif
                     % if  registration.is_rejected:
                 <div class="message message-status is-shown exam-schedule">
-                  <p class="message-copy"><strong>Your registration for the Pearson exam has been rejected. Please <a href="${testcenter_register_target}" id="exam_register_link">see your registration status details</a></strong>. Otherwise <a class="contact-link" href="mailto:exam-help@edx.org?subject=Pearson VUE Exam - ${get_course_about_section(course, 'university')} ${course.number}">contact edX at exam-help@edx.org</a> for further help.</p>
+                  <p class="message-copy"><strong>Your registration for the Pearson exam has been rejected. Please <a href="${testcenter_register_target}" id="exam_register_link">see your registration status details</a></strong>. Otherwise <a class="contact-link" href="mailto:${settings.EXAM_HELP_EMAIL}?subject=Pearson VUE Exam - ${get_course_about_section(course, 'university')} ${course.number}">contact ${settings.PLATFORM_NAME} at ${settings.EXAM_HELP_EMAIL}</a> for further help.</p>
                 </div>
                     % endif
                    	% if not registration.is_accepted and not registration.is_rejected:

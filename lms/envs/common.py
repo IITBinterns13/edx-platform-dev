@@ -32,7 +32,7 @@ from .discussionsettings import *
 
 ################################### FEATURES ###################################
 # The display name of the platform to be used in templates/emails/etc.
-PLATFORM_NAME = "edX"
+PLATFORM_NAME = "IITBX"
 
 COURSEWARE_ENABLED = True
 ENABLE_JASMINE = False
@@ -249,9 +249,9 @@ WIKI_ENABLED = False
 
 ###
 
-COURSE_DEFAULT = '6.002x_Fall_2012'
-COURSE_SETTINGS = {'6.002x_Fall_2012': {'number': '6.002x',
-                                          'title': 'Circuits and Electronics',
+COURSE_DEFAULT = 'IAP2013'
+COURSE_SETTINGS = {'IAP2013': {'number': 'IAP2013',
+                                          'title': 'Introduction to Android Programming',
                                           'xmlpath': '6002x/',
                                           'location': 'i4x://edx/6002xs12/course/6.002x_Fall_2012',
                                           }
@@ -315,21 +315,25 @@ USE_TZ = True
 
 # Site info
 SITE_ID = 1
-SITE_NAME = "edx.org"
+SITE_NAME = "iitbx.org"
 HTTPS = 'on'
 ROOT_URLCONF = 'lms.urls'
 IGNORABLE_404_ENDS = ('favicon.ico')
 
 # Email
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'registration@edx.org'
-DEFAULT_FEEDBACK_EMAIL = 'feedback@edx.org'
-SERVER_EMAIL = 'devops@edx.org'
-TECH_SUPPORT_EMAIL = 'technical@edx.org'
-CONTACT_EMAIL = 'info@edx.org'
-BUGS_EMAIL = 'bugs@edx.org'
+DEFAULT_FROM_EMAIL = 'registration@iitbx.org'
+DEFAULT_FEEDBACK_EMAIL = 'feedback@iitbx.org'
+SERVER_EMAIL = 'devops@iitbx.org'
+TECH_SUPPORT_EMAIL = 'technical@iitbx.org'
+CONTACT_EMAIL = 'info@iitbx.org'
+BUGS_EMAIL = 'bugs@iitbx.org'
+ACCESS_EMAIL='accessibility@iitbx.org'
+PRESS_EMAIL='press@iitbx.org'
+UNIVERSITY_EMAIL='university@iitbx.org'
+EXAM_HELP_EMAIL='exam-help@iitbx.org'
 ADMINS = (
-    ('edX Admins', 'admin@edx.org'),
+    ('IITBX Admins', 'admin@iitbx.org'),
 )
 MANAGERS = ADMINS
 
@@ -346,7 +350,7 @@ STATICFILES_DIRS = [
 FAVICON_PATH = 'images/favicon.ico'
 
 # Locale/Internationalization
-TIME_ZONE = 'America/New_York'  # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
+TIME_ZONE = 'Asia/Kolkata'  # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 LANGUAGE_CODE = 'en'  # http://www.i18nguy.com/unicode/language-identifiers.html
 USE_I18N = True
 USE_L10N = True

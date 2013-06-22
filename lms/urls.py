@@ -202,6 +202,8 @@ if settings.COURSEWARE_ENABLED:
         # url(r'^save_circuit/(?P<circuit>[^/]*)$', 'circuit.views.save_circuit'),
 
         url(r'^courses/?$', 'branding.views.courses', name="courses"),
+        url(r'^courses/search/?$', 'courseware.views.courses_search', name="courses_search"),
+        url(r'^courses/search/(?P<org_id>[^/]+)$', 'courseware.views.university_search', name="university_courses"),
         url(r'^change_enrollment$',
             'student.views.change_enrollment', name="change_enrollment"),
 

@@ -1,0 +1,66 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#search_button').click(function() {
+            q = $('#search_string').val();
+            if(q != '')
+            $('#courses').html('&nbsp;').load('/courses/search?search_string='+ q);
+        });
+	return false;
+    });
+/*
+    $(document).ajaxStart(function() {
+        $('#spinner').show();
+    }).ajaxStop(function() {
+        $('#spinner').hide();
+    });
+    */
+</script>
+<section class="filter" id="filter">
+  <nav>
+    <div class="dropdown university">
+      <div class="filter-heading">
+        All Universities
+      </div>
+      <ul>
+        %for university in universities:
+        <li>
+          <a href="#" id="university">${university}</a>
+        </li>
+        %endfor
+      </ul>
+    </div>
+
+    <div class="dropdown subject">
+      <div class="filter-heading">
+        All Subjects
+      </div>
+      <ul>
+        <li>
+          <a href="#">Computer Science</a>
+        </li>
+        <li>
+          <a href="#">Other</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="dropdown featured">
+      <div class="filter-heading">
+        Newest
+      </div>
+      <ul>
+        <li>
+          <a href="#">Top Rated</a>
+        </li>
+        <li>
+          <a href="#">Starting soonest</a>
+        </li>
+      </ul>
+    </div>
+
+    <form class="search" method="POST" onsubmit="return false">
+      <input name="search_string" id="search_string" type="text" placeholder="Search for courses">
+      <input id="search_button" type="submit">
+    </form>
+  </nav>
+</section>

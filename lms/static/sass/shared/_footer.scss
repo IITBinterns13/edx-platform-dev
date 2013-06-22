@@ -12,7 +12,8 @@
     margin: 0 auto;
 
     p, ol, ul {
-      font-family: $sans-serif;
+      
+      font-family: ubuntu monospace,$sans-serif;
     }
 
     a {
@@ -74,7 +75,7 @@
           width: flex-grid(6,8);
           margin-left: $baseline;
           padding-left: $baseline;
-          font-size: em(13);
+          font-size: em(12);
           background: transparent url(/static/images/bg-footer-divider.jpg) 0 0 no-repeat;
         }
       }
