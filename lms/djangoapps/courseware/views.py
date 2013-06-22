@@ -126,6 +126,21 @@ def university_search(request,org_id=""):
             return render_to_response("courseware/courses_search.html",{'courses':courses})
         else:
             return HttpResponse("No Courses Found")
+            
+def subject_search(request,org_id=""):
+    if request.is_ajax():
+        query_university=org_id
+        courses = []
+        allCourses = get_courses(request.user, request.META.get('HTTP_HOST'))
+        if query_university is not None:
+            for course in allCourses:
+                university=get_course_about_section(course,'university')
+                if query_university.lower() in university.lower():
+                    courses.append(course) 
+        if courses:
+            return render_to_response("courseware/courses_search.html",{'courses':courses})
+        else:
+            return HttpResponse("No Courses Found")
         
 def render_accordion(request, course, chapter, section, model_data_cache):
     """

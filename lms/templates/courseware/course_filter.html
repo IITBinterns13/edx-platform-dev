@@ -7,6 +7,18 @@
         });
 	return false;
     });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#universities a').click(function() {
+            q=$(this).attr("href");
+            if(q != ''){
+                $('#courses').html('&nbsp;').load('/courses/search/'+ q);
+                //$('#university-heading').html(q);
+            }
+        });
+	return false;
+    });
 /*
     $(document).ajaxStart(function() {
         $('#spinner').show();
@@ -18,13 +30,13 @@
 <section class="filter" id="filter">
   <nav>
     <div class="dropdown university">
-      <div class="filter-heading">
+      <div class="filter-heading" id="university-heading">
         All Universities
       </div>
-      <ul>
+      <ul id="universities">
         %for university in universities:
         <li>
-          <a href="#" id="university">${university}</a>
+          <a href="${university}" onclick="return false">${university}</a>
         </li>
         %endfor
       </ul>
