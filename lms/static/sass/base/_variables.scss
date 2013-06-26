@@ -34,7 +34,6 @@ $dark-gray: rgb(51, 51, 51);
 $border-color: rgb(200, 200, 200);
 $sidebar-color: rgb(246, 246, 246);
 $outer-border-color: rgb(170, 170, 170);
-
 // old variables
 $light-gray: #ddd;
 $dark-gray: #333;
@@ -54,20 +53,21 @@ $m-blue-s1: saturate($m-blue,15%);
 $m-pink: rgb(204,51,102);
 
 $m-base-font-size: em(15);
-
+//$head-foot:#215E21;
+$head-foot:#000111;
 
 $base-font-color: rgb(60,60,60);
 $baseFontColor: rgb(60,60,60);
 $lighter-base-font-color: rgb(100,100,100);
 $text-color: $dark-gray;
 
-$body-bg: rgb(250,250,250);
-$container-bg: $white;
+$body-bg: #eeeeee;
+$container-bg: #eeeeee;
 $header-image: linear-gradient(-90deg, rgba(255,255,255, 1), rgba(230,230,230, 0.9));
-$header-bg: $white;
+$header-bg: $head-foot;
 $courseware-header-image: linear-gradient(top, #fff, #eee);
 $courseware-header-bg: transparent;
-$footer-bg: $white;
+$footer-bg: $head-foot;
 $courseware-footer-border: none;
 $courseware-footer-shadow: none;
 $courseware-footer-margin: 0px;
@@ -88,7 +88,7 @@ $dashboard-profile-header-color: transparent;
 $dashboard-profile-color: rgb(252,252,252);
 $dot-color: $light-gray;
 
-$content-wrapper-bg: $white;
+$content-wrapper-bg: #eeeeee;
 $course-bg-color: #d6d6d6;
 $course-bg-image: url(../images/bg-texture.png);
 $account-content-wrapper-bg: shade($body-bg, 2%);

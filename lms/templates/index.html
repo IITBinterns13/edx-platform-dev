@@ -11,9 +11,9 @@
           % if self.stanford_theme_enabled():
             <h1>Free courses from <strong>Stanford</strong></h1>
           % else:
-            <h1>The Future of Online Education</h1>
+            <h1>Learn -> Try -> Fly</h1>
           % endif
-          <h2>learn anywhere, anytime</h2>
+          <h2>anywhere anytime</h2>
         </hgroup>
 
         ## Disable social buttons for non-${settings.PLATFORM_NAME} sites
@@ -54,8 +54,8 @@
     <section class="highlighted-courses">
       ## Disable university partner logos and sites for non-${settings.PLATFORM_NAME} sites
       % if not self.theme_enabled():
-        ##<h2>Explore free courses from <span class="edx">${settings.PLATFORM_NAME}</span> universities</h2> 
-        <h2>Explore free courses from <span class="edx">${settings.PLATFORM_NAME}</span> universities</h2><!--changed--> 
+        ##<h2>Explore free courses from <span class="edx">${settings.PLATFORM_NAME}</span> universities</h2>
+        <h2>Explore free courses from <span class="edx">${settings.PLATFORM_NAME}</span> universities</h2><!--changed-->
         <section class="university-partners university-partners2x6">
           <ol class="partners">
              <li class="partner">
@@ -176,7 +176,7 @@
   </section>
 
   ## Disable press and marketing for non-${settings.PLATFORM_NAME} sites
-##  % if not self.theme_enabled(): 
+##  % if not self.theme_enabled():
     % if self.theme_enabled():##changed
     <section class="container">
       <section class="more-info">

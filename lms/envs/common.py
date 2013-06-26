@@ -96,19 +96,19 @@ MITX_FEATURES = {
     # This flag disables the requirement of having to agree to the TOS for users registering
     # with Shib.  Feature was requested by Stanford's office of general counsel
     'SHIB_DISABLE_TOS': False,
-    
+
     # Enables ability to restrict enrollment in specific courses by the user account login method
     'RESTRICT_ENROLL_BY_REG_METHOD': False,
 
     # analytics experiments
     'ENABLE_INSTRUCTOR_ANALYTICS': False,
 
-    # enable analytics server.  
+    # enable analytics server.
     # WARNING: THIS SHOULD ALWAYS BE SET TO FALSE UNDER NORMAL
     # LMS OPERATION. See analytics.py for details about what
-    # this does. 
+    # this does.
 
-    'RUN_AS_ANALYTICS_SERVER_ENABLED' : False, 
+    'RUN_AS_ANALYTICS_SERVER_ENABLED' : False,
 
     # Flip to True when the YouTube iframe API breaks (again)
     'USE_YOUTUBE_OBJECT_API': False,
@@ -128,7 +128,7 @@ MITX_FEATURES = {
 
     # Turn on a page that lets staff enter Python code to be run in the
     # sandbox, for testing whether it's enabled properly.
-    'ENABLE_DEBUG_RUN_PYTHON': False,
+    'ENABLE_DEBUG_RUN_PYTHON': True,
 
     # Enable URL that shows information about the status of variuous services
     'ENABLE_SERVICE_STATUS': False,
@@ -297,7 +297,7 @@ CONTENTSTORE = None
 
 CODE_JAIL = {
     # Path to a sandboxed Python executable.  None means don't bother.
-    'python_bin': None,
+    'python_bin': '/home/vivek/.virtualenvs/edx-platform-sandbox/bin/python',
     # User to run as in the sandbox.
     'user': 'sandbox',
 
@@ -316,7 +316,7 @@ CODE_JAIL = {
 #   COURSES_WITH_UNSAFE_CODE = [
 #       r"Harvard/XY123.1/.*"
 #   ]
-COURSES_WITH_UNSAFE_CODE = []
+COURSES_WITH_UNSAFE_CODE = [r"IITB/CS008/.*" ]
 
 ############################ SIGNAL HANDLERS ################################
 # This is imported to register the exception signal handling that logs exceptions
@@ -336,7 +336,7 @@ ROOT_URLCONF = 'lms.urls'
 IGNORABLE_404_ENDS = ('favicon.ico')
 
 # Email
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 DEFAULT_FROM_EMAIL = 'registration@iitbx.org'
 DEFAULT_FEEDBACK_EMAIL = 'feedback@iitbx.org'
 SERVER_EMAIL = 'devops@iitbx.org'
@@ -351,6 +351,21 @@ ADMINS = (
     ('IITBX Admins', 'admin@iitbx.org'),
 )
 MANAGERS = ADMINS
+
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#DEFAULT_FROM_EMAIL = 'kushal13@cse.iitb.ac.in'
+DEFAULT_FEEDBACK_EMAIL = 'kushal13@cse.iitb.ac.in'
+SERVER_EMAIL = 'kushal13@cse.iitb.ac.in'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.cse.iitb.ac.in'
+EMAIL_HOST_USER ='kushal13@cse.iitb.ac.in'
+EMAIL_PASSWORD = "mailmeto"
+EMAIL_PORT = 25  
+ADMINS = (
+    ('edX Admins', 'admin@edx.org'),
+)
+MANAGERS = ADMINS
+
 
 # Static content
 STATIC_URL = '/static/'
@@ -758,6 +773,7 @@ MKTG_URL_LINK_MAP = {
     'TOS': 'tos',
     'HONOR': 'honor',
     'PRIVACY': 'privacy_edx',
+    'TEAM': 'team'
 }
 
 ############################### THEME ################################

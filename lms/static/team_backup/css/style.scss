@@ -1,0 +1,43 @@
+.da-thumbs {
+  list-style: none;
+  width: 984px;
+  height: 600px;
+  position: relative;
+  margin: 20px auto;
+  padding: 0;
+  li {
+    float: left;
+    margin: 5px;
+    background: #ccc;
+    padding: 4px;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    a {
+      display: block;
+      position: relative;
+      img {
+        display: block;
+        position: relative;
+      }
+      overflow: hidden;
+      div {
+        position: absolute;
+        background: #111;
+        background: rgba(255, 254, 200, 0.7);
+        width: 100%;
+        height: 100%;
+        span {
+          display: block;
+          padding: 10px 0;
+          margin: 40px 20px 20px 20px;
+          /*text-transform: uppercase;*/
+          font-weight: normal;
+          color: #0038F1;
+          text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+          box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), 0 -10px 0 rgba(255, 255, 255, 0.3);
+        }
+      }
+    }
+  }
+}

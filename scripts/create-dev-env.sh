@@ -219,85 +219,6 @@ exec 2>&1
 
 # Install basic system requirements
 
-<<<<<<< HEAD
-# mkdir -p $BASE
-# case `uname -s` in
-#     [Ll]inux)
-#         command -v lsb_release &>/dev/null || {
-#             error "Please install lsb-release."
-#             exit 1
-#         }
-#
-#         distro=`lsb_release -cs`
-#         case $distro in
-#             wheezy|jessie|maya|olivia|nadia|precise|quantal)
-#                 warning "
-#                         Debian support is not fully debugged. Assuming you have standard
-#                         development packages already working like scipy rvm, the
-#                         installation should go fine, but this is still a work in progress.
-#
-#                         Please report issues you have and let us know if you are able to figure
-#                         out any workarounds or solutions
-#
-#                         Press return to continue or control-C to abort"
-#
-#                 read dummy
-#                 sudo apt-get install git ;;
-#             squeeze|lisa|katya|oneiric|natty|raring)
-#                 warning "
-#                           It seems like you're using $distro which has been deprecated.
-#                           While we don't technically support this release, the install
-#                           script will probably still work.
-#
-#                           Raring requires an install of rvm to work correctly as the raring
-#                           package manager does not yet include a package for rvm
-#
-#                           Press return to continue or control-C to abort"
-#                 read dummy
-#                 sudo apt-get install git
-#                 ;;
-#
-#             *)
-#                 error "Unsupported distribution - $distro"
-#                 exit 1
-#                ;;
-#         esac
-#         ;;
-#
-#     Darwin)
-#         if [[ ! -w /usr/local ]]; then
-#             cat<<EO
-#
-#         You need to be able to write to /usr/local for
-#         the installation of brew and brew packages.
-#
-#         Either make sure the group you are in (most likely 'staff')
-#         can write to that directory or simply execute the following
-#         and re-run the script:
-#
-#         $ sudo chown -R $USER /usr/local
-# EO
-#
-#             exit 1
-#
-#         fi
-#
-#         command -v brew &>/dev/null || {
-#             output "Installing brew"
-#             /usr/bin/ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go)
-#         }
-#         command -v git &>/dev/null || {
-#             output "Installing git"
-#             brew install git
-#         }
-#
-#         ;;
-#     *)
-#         error "Unsupported platform. Try switching to either Mac or a Debian-based linux distribution (Ubuntu, Debian, or Mint)"
-#         exit 1
-#         ;;
-# esac
-=======
 mkdir -p $BASE
 case `uname -s` in
     [Ll]inux)
@@ -375,7 +296,6 @@ EO
         exit 1
         ;;
 esac
->>>>>>> 88060c059019674b933f4803fccaffc7f894ccde
 
 
 # Clone MITx repositories
@@ -385,11 +305,7 @@ esac
 # Sanity check to make sure the repo layout hasn't changed
 if [[ -d $BASE/edx-platform/scripts ]]; then
     output "Installing system-level dependencies"
-<<<<<<< HEAD
-#    bash $BASE/edx-platform/scripts/install-system-req.sh
-=======
     bash $BASE/edx-platform/scripts/install-system-req.sh
->>>>>>> 88060c059019674b933f4803fccaffc7f894ccde
 else
     error "It appears that our directory structure has changed and somebody failed to update this script.
             raise an issue on Github and someone should fix it."
@@ -412,7 +328,9 @@ output "Installing RVM, Ruby, and required gems"
 #      echo "export rvm_path=$RUBY_DIR" > $HOME/.rvmrc
 #  fi
 #fi
-
+if [[ -r $BASE/edx-platform/.ruby-version ]]; then
+  RUBY_VER=`cat $BASE/edx-platform/.ruby-version`
+fi
 # rvm has issues in debian family, this is taken from stack overflow
 case `uname -s` in
     Darwin)
@@ -424,8 +342,24 @@ case `uname -s` in
                 refer to the following stack overflow question:
                 http://stackoverflow.com/questions/9056008/installed-ruby-1-9-3-with-rvm-but-command-line-doesnt-show-ruby-v/9056395#9056395"
         #sudo apt-get --purge remove ruby-rvm
-       # sudo rm -rf /usr/share/ruby-rvm /etc/rvmrc /etc/profile.d/rvm.sh
-       # curl -sL https://get.rvm.io | bash -s stable --ruby --autolibs=enable --auto-dotfiles
+        # sudo rm -rf /usr/share/ruby-rvm /etc/rvmrc /etc/profile.d/rvm.sh
+        # curl -sL https://get.rvm.io | bash -s stable --ruby --autolibs=enable --auto-dotfiles
+        sudo apt-get remove --purge ruby-rvm ruby
+        sudo rm -rf /usr/share/ruby-rvm /etc/rmvrc /etc/profile.d/rvm.sh
+        rm -rf ~/.rvm* ~/.gem/ ~/.bundle*
+
+        sudo apt-get install -y \
+        git \
+        build-essential \
+        curl \
+        wget
+
+        echo "[[ -s '${HOME}/.rvm/scripts/rvm' ]] && source '${HOME}/.rvm/scripts/rvm'" >> ~/.bashrc
+        curl -L https://get.rvm.io | bash -s stable
+        # Create the "edx" gemset
+        rvm install 1.9.3-p374
+        rvm use --default 1.9.3-p374
+        source $HOME/.rvm/scripts/rvm
     ;;
 esac
 
@@ -451,9 +385,7 @@ case `uname -s` in
 esac
 
 # Let the repo override the version of Ruby to install
-#if [[ -r $BASE/edx-platform/.ruby-version ]]; then
-#  RUBY_VER=`cat $BASE/edx-platform/.ruby-version`
-#fi
+
 
 # Current stable version of RVM (1.19.0) requires the following to build Ruby:
 #
@@ -469,24 +401,9 @@ esac
 #LESS="-E" rvm install $RUBY_VER --with-readline
 
 ##----roshan
-#sudo apt-get remove --purge ruby-rvm ruby
-#sudo rm -rf /usr/share/ruby-rvm /etc/rmvrc /etc/profile.d/rvm.sh
-#rm -rf ~/.rvm* ~/.gem/ ~/.bundle*
 
-# sudo apt-get install -y \
-# git \
-# build-essential \
-# curl \
-# wget
-
-echo "[[ -s '${HOME}/.rvm/scripts/rvm' ]] && source '${HOME}/.rvm/scripts/rvm'" >> ~/.bashrc
-curl -L https://get.rvm.io | bash -s stable
-# Create the "edx" gemset
-#rvm install 1.9.3-p374
-rvm use --default 1.9.3-p374
-#source $HOME/.rvm/scripts/rvm
-#rvm use "$RUBY_VER@edx-platform" --create
-#rvm rubygems latest
+rvm use "$RUBY_VER@edx-platform" --create
+rvm rubygems latest
 
 output "Installing gem bundler"
 gem install bundler
@@ -527,9 +444,9 @@ case `uname -s` in
                 # this will be an older one; newer ones are installed
                 # in /usr/local/bin/virtualenvwrapper.sh
                 if [[ -f "/etc/bash_completion.d/virtualenvwrapper" ]]; then
-source /etc/bash_completion.d/virtualenvwrapper
+                    source /etc/bash_completion.d/virtualenvwrapper
                 else
-error "Could not find virtualenvwrapper"
+                    error "Could not find virtualenvwrapper"
                     exit 1
                 fi
             }
@@ -617,7 +534,7 @@ pip install -r $BASE/edx-platform/requirements/edx/pre.txt
 output "Installing edX requirements"
 # Install prereqs
 cd $BASE/edx-platform
-rvm use $RUBY_VER
+rvm use "$RUBY_VER@edx-platform" --create
 rake install_prereqs
 
 # Final dependecy
@@ -629,19 +546,14 @@ gem install bundler
 bundle install
 rake install_prereqs
 
-<<<<<<< HEAD
 mkdir -p "$BASE/log" || true
 mkdir -p "$BASE/db" || true
 mkdir -p "$BASE/data" || true
-=======
-mkdir -p "$BASE/log"
-mkdir -p "$BASE/db"
-mkdir -p "$BASE/data"
->>>>>>> 88060c059019674b933f4803fccaffc7f894ccde
 
-rake django-admin[syncdb]
-rake django-admin[migrate]
-rake django-admin[update-templates]
+
+#rake django-admin[syncdb]
+#rake django-admin[migrate]
+#rake django-admin[update-templates]
 # Configure Git
 
 output "Fixing your git default settings"
@@ -661,7 +573,7 @@ cat<<END
 
    Then, every time you're ready to work on the project, just run
 
-        $ workon mitx
+        $ workon edx-platform
 
    To initialize Django
 

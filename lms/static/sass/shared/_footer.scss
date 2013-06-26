@@ -3,7 +3,7 @@
   border-top: 1px solid tint($m-gray,50%);
   padding: 25px ($baseline/2) ($baseline*1.5) ($baseline/2);
   background: $footer-bg;
-
+  color: $light-gray;
   footer {
     @include clearfix();
     max-width: grid-width(12);
@@ -12,7 +12,7 @@
     margin: 0 auto;
 
     p, ol, ul {
-      
+
       font-family: ubuntu monospace,$sans-serif;
     }
 
@@ -21,14 +21,14 @@
 
       &:link, &:visited, &:hover, &:active {
         border-bottom: none;
-        color: $link-color;
+        color: white;
         text-decoration: none !important;
         font-family: $sans-serif;
       }
 
       &:hover, &:active {
-        border-bottom: 1px dotted $link-color;
-        color: $link-color;
+        border-bottom: 1px dotted skyblue;
+        color: skyblue;
       }
     }
 
@@ -47,10 +47,10 @@
           margin-right: ($baseline*0.75);
 
           a {
-            color: tint($black, 20%);
+              color: tint($light-gray, 20%);
 
             &:hover, &:active {
-              color: $link-color;
+              color: skyblue;
             }
           }
 
@@ -61,7 +61,7 @@
       }
 
       .colophon-about {
-        @include clearfix();
+       @include clearfix();
 
         img {
           width: 68px;
@@ -76,6 +76,7 @@
           margin-left: $baseline;
           padding-left: $baseline;
           font-size: em(12);
+          color: tint($light-gray, 20%);
           background: transparent url(/static/images/bg-footer-divider.jpg) 0 0 no-repeat;
         }
       }

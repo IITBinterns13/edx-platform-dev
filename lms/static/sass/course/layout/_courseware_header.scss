@@ -94,7 +94,7 @@ header.global.slim {
       padding: 6px 12px 8px;
       text-decoration: none;
       text-transform: none;
-      text-shadow: 0 -1px rgba(0, 0, 0, 0.6);
+      //text-shadow: 0 -1px rgba(0, 0, 0, 0.6);
       vertical-align: middle;
 
       &:hover, &.active {
@@ -108,14 +108,16 @@ header.global.slim {
   }
 
   h1.logo {
-    margin: 0 10px 0 13px;
+    float: left;
+    margin: -2px 10px 0px 0px;
+    position: relative;
     padding-right: 20px;
 
     &:before {
       @extend .faded-vertical-divider;
       content: "";
       display: block;
-      height: 35px;
+      height: 40px;
       position: absolute;
       right: 3px;
       top: 0;
@@ -126,7 +128,7 @@ header.global.slim {
       @extend .faded-vertical-divider-light;
       content: "";
       display: block;
-      height: 35px;
+      height: 40px;
       position: absolute;
       right: 0;
       top: 0;
@@ -134,7 +136,7 @@ header.global.slim {
     }
 
     img {
-      height: 30px;
+      height: 35px;
     }
   }
 
@@ -146,14 +148,14 @@ header.global.slim {
     display: block;
     width: 700px;
     float: left;
-    font-size: 0.9em;
-    font-weight: 600;
-    color: #777;
+    font-size: 1em;
+    font-weight: 500;
+    color: #eeeeee;
     letter-spacing: 0;
     margin-top: 9px;
     margin-bottom: 0;
     text-transform: none;
-    text-shadow: 0 1px 0 #fff;
+    text-shadow: 0 1px 0 #ccc;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -161,7 +163,9 @@ header.global.slim {
     .provider {
       font: inherit;
       font-weight: bold;
+      color: $white;
     }
+    
   }
 
   a#signup {

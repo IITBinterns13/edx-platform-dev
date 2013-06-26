@@ -1,0 +1,92 @@
+<%! from django.core.urlresolvers import reverse %>
+<%inherit file="../main.html" />
+
+<%namespace name='static' file='../static_content.html'/>
+
+<%block name="title"><title>Developer's Team</title></%block>
+<link href='http://fonts.googleapis.com/css?family=Alegreya+SC:700,400italic' rel='stylesheet' type='text/css' />
+<link rel="stylesheet" type="text/css" href="${MITX_ROOT_URL}/static/team/css/style.css" />
+<script src="${MITX_ROOT_URL}/static/team/js/modernizr.custom.97074.js"></script>
+<noscript><link rel="stylesheet" type="text/css" href="${MITX_ROOT_URL}/static/team/css/noJS.css"/></noscript>
+
+<div class="container">
+    <!-- Codrops top bar -->
+    <!--/ Codrops top bar -->
+
+    <section>
+        <ul id="da-thumbs" class="da-thumbs">
+            <li>
+                <a href="http://dribbble.com/shots/502538-Natalie-Justin-Cleaning">
+                    <img src="${MITX_ROOT_URL}/static/team/images/1.jpg" width ="250px" height ="165px"/>
+                    <div><span>Natalie & Justin Cleaning by Justin Younger</span></div>
+                </a>
+            </li>
+            <li>
+                <a href="http://dribbble.com/shots/501695-Cornwall-Map">
+                    <img src="${MITX_ROOT_URL}/static/team/images/2.jpg" width ="250px" height ="165px"/>
+                    <div><span>Cornwall Map by Katharina Maria Zimmermann</span></div>
+                </a>
+            </li>
+            <li>
+                <a href="http://dribbble.com/shots/500861-final-AD-logo">
+                    <img src="${MITX_ROOT_URL}/static/team/images/3.jpg" width ="250px" height ="165px"/>
+                    <div><span>
+                                    <p>
+                                        <b>Ajay Babar</b><br>
+                                        <small><pre>ajaybabar1986@gmail.com</pre></small>
+                                    </p>
+                                </span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="http://dribbble.com/shots/500369-Land-Those-Planes">
+                    <img src="${MITX_ROOT_URL}/static/team/images/4.jpg" width ="250px" height ="165px"/>
+                    <div><span>Land Those Planes by Lee Ann Marcel</span></div>
+                </a>
+            </li>
+            <li>
+                <a href="http://dribbble.com/shots/497795-Seahorse">
+                    <img src="${MITX_ROOT_URL}/static/team/images/5.jpg" width ="250px" height ="165px"/>
+                    <div><span>Seahorse by Trevor Basset</span></div>
+                </a>
+            </li>
+            <li>
+                <a href="http://dribbble.com/shots/505046-Menu">
+                    <img src="${MITX_ROOT_URL}/static/team/images/6.jpg" width ="250px" height ="165px"/>
+                    <div><span>Menu by Simon Jensen</span></div>
+                </a>
+            </li>
+            <li>
+                <a href="http://dribbble.com/shots/504336-TN-Aquarium">
+                    <img src="${MITX_ROOT_URL}/static/team/images/7.jpg" width ="250px" height ="165px" />
+                    <div><span>TN Aquarium by Charlie Gann</span></div>
+                </a>
+            </li>
+            <li>
+                <a href="http://dribbble.com/shots/504197-Mr-Crabs">
+                    <img src="${MITX_ROOT_URL}/static/team/images/coming-soon.png" width ="250px" height ="165px"/>
+                    <div><span>Mr. Crabs by John Generalov</span></div>
+                </a>
+            </li>
+            <li>
+                <a href="http://dribbble.com/shots/503731-Gallery-of-Mo-2-Mo-logo">
+                    <img src="${MITX_ROOT_URL}/static/team/images/8.jpg" width ="250px" height ="165px"/>
+                    <div><span>Gallery of Mo 2.Mo logo by Adam Campion</span></div>
+                </a>
+            </li>
+
+        </ul>
+    </section>
+</div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="${MITX_ROOT_URL}/static/team/js/jquery.hoverdir.js"></script>
+<script type="text/javascript">
+    $(function() {
+
+        $(' #da-thumbs > li ').each( function() { $(this).hoverdir({
+            hoverDelay : 75
+        }); } );
+
+    });
+</script>

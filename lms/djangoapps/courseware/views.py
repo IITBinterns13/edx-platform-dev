@@ -189,6 +189,30 @@ def render_accordion(request, course, chapter, section, model_data_cache):
         child = None
     return child
 
+def get_current_child(xmodule):
+    """
+    Get the xmodule.position's display item of an xmodule that has a position and
+    children.  If xmodule has no position or is out of bounds, return the first child.
+    Returns None only if there are no children at all.
+    """
+    if not hasattr(xmodule, 'position'):
+        return None
+
+    if xmodule.position is None:
+        pos = 0
+    else:
+        # position is 1-indexed.
+        pos = xmodule.position - 1
+
+    children = xmodule.get_display_items()
+    if 0 <= pos < len(children):
+        child = children[pos]
+    elif len(children) > 0:
+        # Something is wrong.  Default to first child
+        child = children[0]
+    else:
+        child = None
+    return child
 
 def redirect_to_course_position(course_module):
     """
