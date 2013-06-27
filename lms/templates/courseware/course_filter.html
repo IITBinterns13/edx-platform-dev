@@ -2,11 +2,14 @@
     $(document).ready(function() {
         $('#search_button').click(function() {
             q = $('#search_string').val();
-            if(q != '')
-            $('#courses').html('&nbsp;').load('/courses/search?search_string='+ q);
+            if(q != ''){
+                $('#courses').html('&nbsp;').load('/courses/search?search_string='+ q);
+                $('#banner').hide();
+            }
         });
 	return false;
     });
+});
 </script>
 <script type="text/javascript">
     $(document).ready(function() {
@@ -15,6 +18,7 @@
             if(q != ''){
                 $('#courses').html('&nbsp;').load('/courses/search/'+ q);
                 //$('#university-heading').html(q);
+                $('#banner').hide();
             }
         });
 	return false;

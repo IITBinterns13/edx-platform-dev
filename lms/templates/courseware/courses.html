@@ -5,7 +5,7 @@
 <%block name="title"><title>Courses</title></%block>
 
 <section class="find-courses">
-  <header class="search">
+  <header class="search" id="banner">
     <div class="inner-wrapper main-search">
       <hgroup>
         <div class="logo">
@@ -23,8 +23,8 @@
       </hgroup>
     </div>
   </header>
-
-  <section class="container" id="container" style="min-height:400px; height:auto !important; height:400px;" >
+  <header></header>
+  <section class="container" id="container" style="min-height:90vh;" >
     ## I'm removing this for now since we aren't using it for the fall.
     <%include file="course_filter.html" />
     <section class="courses" id="courses">

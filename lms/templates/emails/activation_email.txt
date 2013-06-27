@@ -15,10 +15,10 @@ browser's address bar:
   If you didn't request this, you don't need to do anything; you won't
   receive any more email from us. Please do not reply to this e-mail;
   if you require assistance, check the about section of the
-  ${settings.PLATFORM_NAME} Courses web site.
+  IITBX Courses web site.
 % else:
   If you didn't request this, you don't need to do anything; you won't
   receive any more email from us. Please do not reply to this e-mail;
   if you require assistance, check the help section of the
-  ${settings.PLATFORM_NAME} web site.
+  IITBX web site.
 % endif

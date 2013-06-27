@@ -1,1 +1,1 @@
-Your account for ${settings.PLATFORM_NAME}
+Your account for IITBX
