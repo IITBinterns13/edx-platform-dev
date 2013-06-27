@@ -73,13 +73,9 @@ change_git_push_defaults() {
     #Set git push defaults to upstream rather than master
     output "Changing git defaults"
     git config --global push.default upstream
-<<<<<<< HEAD
-=======
-
 }
 
 clone_repos() {
->>>>>>> 88060c059019674b933f4803fccaffc7f894ccde
 
 }
 
@@ -106,20 +102,29 @@ clone_repos() {
 =======
 set_base_default() {  # if PROJECT_HOME not set
     # 2 possibilities: this is from cloned repo, or not
-    # this script is in "./scripts" if a git clone
-    this_repo=$(cd "${BASH_SOURCE%/*}/.." && pwd)
-    if [[ "${this_repo##*/}" = "edx-platform" && -d "$this_repo/.git" ]]; then
-        # set BASE one-up from this_repo;
-        echo "${this_repo%/*}"
+
+    # See if remote's url is named edx-platform (this works for forks too, but
+    # not if the name was changed).
+    cd "$( dirname "${BASH_SOURCE[0]}" )" 
+    this_repo=$(basename $(git ls-remote --get-url 2>/dev/null) 2>/dev/null) ||
+        echo -n ""
+
+    if [[ "x$this_repo" = "xedx-platform.git" ]]; then
+        # We are in the edx repo and already have git installed. Let git do the
+        # work of finding base dir:
+        echo "$(dirname $(git rev-parse --show-toplevel))"
     else
         echo "$HOME/edx_all"
     fi
 }
 
 
+<<<<<<< HEAD
 >>>>>>> 88060c059019674b933f4803fccaffc7f894ccde
 
 
+=======
+>>>>>>> 6831e84834ed67c4e5a79b9fd9ade01521014eae
 ### START
 
 PROG=${0##*/}
