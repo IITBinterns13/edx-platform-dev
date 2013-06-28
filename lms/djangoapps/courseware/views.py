@@ -80,7 +80,7 @@ def courses(request):
     universities.sort()
     return render_to_response("courseware/courses.html", {'courses': courses,'universities':universities})
 
-#@ensure_csrf_cookie
+@ensure_csrf_cookie
 @cache_if_anonymous
 def courses_search(request):
     """
@@ -111,7 +111,8 @@ def courses_search(request):
                 return render_to_response("courseware/courses_search.html", {'courses': courses})
             else:
                 return HttpResponse("No Courses Found")
-
+@ensure_csrf_cookie
+@cache_if_anonymous
 def university_search(request,org_id=""):
     if request.is_ajax():
         query_university=org_id
@@ -126,7 +127,9 @@ def university_search(request,org_id=""):
             return render_to_response("courseware/courses_search.html",{'courses':courses})
         else:
             return HttpResponse("No Courses Found")
-            
+
+@ensure_csrf_cookie
+@cache_if_anonymous          
 def subject_search(request,org_id=""):
     if request.is_ajax():
         query_university=org_id
