@@ -9,7 +9,7 @@
 <div class="wrapper-content-header wrapper">
   <section class="content content-header">
     <header>
-      <h1>Welcome to <span class="logo">edX Studio</span></h1>
+      <h1>Welcome to <span class="logo">${settings.PLATFORM_NAME} Studio</span></h1>
       <p class="tagline">Studio helps manage your courses online, so you can focus on teaching them</p>
     </header>
   </section>
@@ -135,7 +135,7 @@
 
     <ul class="list-actions">
       <li class="action-item">
-        <a href="${reverse('signup')}" class="action action-primary">Sign Up &amp; Start Making an edX Course</a>
+        <a href="${reverse('signup')}" class="action action-primary">Sign Up &amp; Start Making an ${settings.PLATFORM_NAME} Course</a>
       </li>
       <li class="action-item">
         <a href="${reverse('login')}" class="action action-secondary">Already have a Studio Account? Sign In</a>

@@ -75,11 +75,8 @@ change_git_push_defaults() {
     git config --global push.default upstream
 }
 
-clone_repos() {
 
-}
 
-<<<<<<< HEAD
 # clone_repos() {
 #
 #     change_git_push_defaults
@@ -99,7 +96,7 @@ clone_repos() {
 #         git clone https://github.com/edx/edx-platform.git
 #     fi
 # }
-=======
+
 set_base_default() {  # if PROJECT_HOME not set
     # 2 possibilities: this is from cloned repo, or not
 
@@ -119,12 +116,8 @@ set_base_default() {  # if PROJECT_HOME not set
 }
 
 
-<<<<<<< HEAD
->>>>>>> 88060c059019674b933f4803fccaffc7f894ccde
 
 
-=======
->>>>>>> 6831e84834ed67c4e5a79b9fd9ade01521014eae
 ### START
 
 PROG=${0##*/}
@@ -310,7 +303,8 @@ esac
 # Sanity check to make sure the repo layout hasn't changed
 if [[ -d $BASE/edx-platform/scripts ]]; then
     output "Installing system-level dependencies"
-    bash $BASE/edx-platform/scripts/install-system-req.sh
+   #----------------Commenting temporary
+   #	 bash $BASE/edx-platform/scripts/install-system-req.sh
 else
     error "It appears that our directory structure has changed and somebody failed to update this script.
             raise an issue on Github and someone should fix it."
@@ -342,7 +336,7 @@ case `uname -s` in
         #curl -sL get.rvm.io | bash -s -- --version 1.15.7
     ;;
 
-    [Ll]inux)
+    [Liinux)
         warning "Setting up rvm on linux. This is a known pain point. If the script fails here
                 refer to the following stack overflow question:
                 http://stackoverflow.com/questions/9056008/installed-ruby-1-9-3-with-rvm-but-command-line-doesnt-show-ruby-v/9056395#9056395"
@@ -362,9 +356,9 @@ case `uname -s` in
         echo "[[ -s '${HOME}/.rvm/scripts/rvm' ]] && source '${HOME}/.rvm/scripts/rvm'" >> ~/.bashrc
         curl -L https://get.rvm.io | bash -s stable
         # Create the "edx" gemset
-        rvm install 1.9.3-p374
-        rvm use --default 1.9.3-p374
         source $HOME/.rvm/scripts/rvm
+	rvm install 1.9.3-p374
+        rvm use --default 1.9.3-p374
     ;;
 esac
 
@@ -373,9 +367,6 @@ esac
 # with the environment and set everything up properly. The RVM install
 # process adds this line to login scripts, so this shouldn't be necessary
 # for the user to do each time.
-if [[ `type -t rvm` != "function" ]]; then
-  source $RUBY_DIR/scripts/rvm
-fi
 
 # Ruby doesn't like to build with clang, which is the default on OS X, so
 # use gcc instead. This may not work, since if your gcc was installed with
@@ -406,9 +397,9 @@ esac
 #LESS="-E" rvm install $RUBY_VER --with-readline
 
 ##----roshan
-
+echo "Hello----"
 rvm use "$RUBY_VER@edx-platform" --create
-rvm rubygems latest
+#rvm rubygems latest
 
 output "Installing gem bundler"
 gem install bundler
