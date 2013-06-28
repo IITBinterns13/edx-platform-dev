@@ -93,16 +93,16 @@ from contentstore import utils
 
             <ul class="list-actions">
               <li class="action-item">
-                <a title="${_('Send a note to students via email')}" href="mailto:someone@domain.com?Subject=Enroll%20in%20${context_course.display_name_with_default}&body=The%20course%20&quot;${context_course.display_name_with_default}&quot;,%20provided%20by%20edX,%20is%20open%20for%20enrollment.%20Please%20navigate%20to%20this%20course%20at%20https:${utils.get_lms_link_for_about_page(course_location)}%20to%20enroll." class="action action-primary"><i class="icon-envelope-alt icon-inline"></i>${_("Invite your students")}</a>
+                <a title="${_('Send a note to students via email')}" href="mailto:someone@domain.com?Subject=Enroll%20in%20${context_course.display_name_with_default}&body=The%20course%20&quot;${context_course.display_name_with_default}&quot;,%20provided%20by%20${settings.PLATFORM_NAME},%20is%20open%20for%20enrollment.%20Please%20navigate%20to%20this%20course%20at%20https:${utils.get_lms_link_for_about_page(course_location)}%20to%20enroll." class="action action-primary"><i class="icon-envelope-alt icon-inline"></i>${_("Invite your students")}</a>
               </li>
             </ul>
           </div>
 
           % if not about_page_editable:
           <div class="notice notice-incontext notice-workflow">
-            <h3 class="title">${_("Promoting Your Course with edX")}</h3>
+            <h3 class="title">${_("Promoting Your Course with ${settings.PLATFORM_NAME}")}</h3>
             <div class="copy">
-              <p>${_('Your course summary page will not be viewable until your course has been announced. To provide content for the page and preview it, follow the instructions provided by your <abbr title="Program Manager">PM</abbr> or Conrad Warre <a rel="email" class="action action-email" href="mailto:conrad@edx.org">(conrad@edx.org)</a>.')}</p>
+              <p>${_('Your course summary page will not be viewable until your course has been announced. To provide content for the page and preview it, follow the instructions provided by your <abbr title="Program Manager">PM</abbr> or Conrad Warre <a rel="email" class="action action-email" href=""></a>.')}</p>
             </div>
           </div>
           % endif

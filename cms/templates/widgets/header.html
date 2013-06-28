@@ -4,7 +4,7 @@
   <header class="primary" role="banner">
 
     <div class="wrapper wrapper-left ">
-      <h1 class="branding"><a href="/">edX Studio</a></h1>
+      <h1 class="branding"><a href="/">${settings.PLATFORM_NAME} Studio</a></h1>
 
       % if context_course:
       <% ctx_loc = context_course.location %>
@@ -86,7 +86,7 @@
               <div class="nav-sub">
                 <ul>
                   <li class="nav-item nav-account-dashboard"><a href="/">My Courses</a></li>
-                  <li class="nav-item nav-account-help"><a href="http://help.edge.edx.org/" rel="external">Studio Help</a></li>
+                  <li class="nav-item nav-account-help"><a href="STUDIO_HELP" rel="external">Studio Help</a></li>
                   <li class="nav-item nav-account-signout"><a class="action action-signout" href="${reverse('logout')}">Sign Out</a></li>
                 </ul>
               </div>
@@ -102,7 +102,7 @@
             <a href="/">How Studio Works</a>
           </li>
           <li class="nav-item nav-not-signedin-help">
-            <a href="http://help.edge.edx.org/" rel="external">Studio Help</a>
+            <a href="STUDIO_HELP" rel="external">Studio Help</a>
           </li>
           <li class="nav-item nav-not-signedin-signup">
             <a class="action action-signup" href="${reverse('signup')}">Sign Up</a>

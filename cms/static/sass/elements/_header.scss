@@ -69,8 +69,11 @@
   a {
     @extend .text-hide;
     display: block;
-    width: 164px;
-    height: 32px;
+    width: 160px;
+    height: 55px;
+    margin-top: -10px;
+    z-index: 90;
+    vertical-align:middle;
     background: transparent url('../img/logo-edx-studio.png') 0 0 no-repeat;
   }
 }

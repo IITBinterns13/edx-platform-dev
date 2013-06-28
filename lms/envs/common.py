@@ -352,7 +352,7 @@ ADMINS = (
 )
 MANAGERS = ADMINS
 
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #DEFAULT_FROM_EMAIL = 'kushal13@cse.iitb.ac.in'
 DEFAULT_FEEDBACK_EMAIL = 'kushal13@cse.iitb.ac.in'
 SERVER_EMAIL = 'kushal13@cse.iitb.ac.in'

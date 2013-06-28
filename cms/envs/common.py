@@ -29,7 +29,7 @@ from lms.envs.common import USE_TZ
 from path import path
 
 ############################ FEATURE CONFIGURATION #############################
-
+PLATFORM_NAME = "IITBX"
 MITX_FEATURES = {
     'USE_DJANGO_PIPELINE': True,
     
@@ -161,20 +161,29 @@ import monitoring.exceptions  # noqa
 # Change DEBUG/TEMPLATE_DEBUG in your environment settings files, not here
 DEBUG = False
 TEMPLATE_DEBUG = False
-
 # Site info
 SITE_ID = 1
-SITE_NAME = "localhost:8000"
+SITE_NAME = "iitbx.org"
 HTTPS = 'on'
 ROOT_URLCONF = 'cms.urls'
 IGNORABLE_404_ENDS = ('favicon.ico')
 
 # Email
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-DEFAULT_FROM_EMAIL = 'kushal13@cse.iitb.ac.in'
-DEFAULT_FEEDBACK_EMAIL = 'kushal13@cse.iitb.ac.in'
-SERVER_EMAIL = 'kushal13@cse.iitb.ac.in'
-
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'registration@iitbx.org'
+DEFAULT_FEEDBACK_EMAIL = 'feedback@iitbx.org'
+SERVER_EMAIL = 'devops@iitbx.org'
+TECH_SUPPORT_EMAIL = 'technical@iitbx.org'
+CONTACT_EMAIL = 'info@iitbx.org'
+BUGS_EMAIL = 'bugs@iitbx.org'
+ACCESS_EMAIL='accessibility@iitbx.org'
+PRESS_EMAIL='press@iitbx.org'
+UNIVERSITY_EMAIL='university@iitbx.org'
+EXAM_HELP_EMAIL='exam-help@iitbx.org'
+STUDIO_HELP='http://help.edge.edx.org'
+ADMINS = (
+    ('IITBX Admins', 'admin@iitbx.org'),
+)
 
 
 
