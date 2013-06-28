@@ -169,7 +169,7 @@ ROOT_URLCONF = 'cms.urls'
 IGNORABLE_404_ENDS = ('favicon.ico')
 
 # Email
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 DEFAULT_FROM_EMAIL = 'registration@iitbx.org'
 DEFAULT_FEEDBACK_EMAIL = 'feedback@iitbx.org'
 SERVER_EMAIL = 'devops@iitbx.org'
@@ -192,9 +192,6 @@ EMAIL_HOST = 'smtp.cse.iitb.ac.in'
 EMAIL_HOST_USER ='kushal13@cse.iitb.ac.in'
 EMAIL_PASSWORD = "mailmeto"
 EMAIL_PORT = 25  
-ADMINS = (
-    ('edX Admins', 'admin@edx.org'),
-)
 MANAGERS = ADMINS
 
 # Static content

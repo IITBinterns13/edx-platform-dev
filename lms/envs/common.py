@@ -351,20 +351,13 @@ ADMINS = (
     ('IITBX Admins', 'admin@iitbx.org'),
 )
 MANAGERS = ADMINS
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-#DEFAULT_FROM_EMAIL = 'kushal13@cse.iitb.ac.in'
 DEFAULT_FEEDBACK_EMAIL = 'kushal13@cse.iitb.ac.in'
 SERVER_EMAIL = 'kushal13@cse.iitb.ac.in'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.cse.iitb.ac.in'
 EMAIL_HOST_USER ='kushal13@cse.iitb.ac.in'
 EMAIL_PASSWORD = "mailmeto"
-EMAIL_PORT = 25  
-ADMINS = (
-    ('edX Admins', 'admin@edx.org'),
-)
-MANAGERS = ADMINS
+EMAIL_PORT = 25
 
 
 # Static content

@@ -2,7 +2,6 @@
     $(document).ready(function() {
         $('#search_button').click(function() {
             q = $('#search_string').val();
-	    alert(q);
             if(q != ''){
                 $('#courses').html('&nbsp;').load('/courses/search?search_string='+ q);
                 $('#banner').hide();
@@ -10,12 +9,14 @@
         });
 	return false;
     });
-});
-
-
+</script>
+<script type="text/javascript">
     $(document).ready(function() {
         $('#universities a').click(function() {
             q=$(this).attr("href");
+	    $.ajaxSetup({
+  		data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+	    });
             if(q != ''){
                 $('#courses').html('&nbsp;').load('/courses/search/'+ q);
                 //$('#university-heading').html(q);
@@ -81,3 +82,4 @@
     </form>
   </nav>
 </section>
+
