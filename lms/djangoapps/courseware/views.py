@@ -80,6 +80,7 @@ def courses(request):
     universities.sort()
     return render_to_response("courseware/courses.html", {'courses': courses,'universities':universities})
 
+#Courses sorted by university
 @ensure_csrf_cookie
 @cache_if_anonymous
 def courses_search(request):
@@ -104,13 +105,13 @@ def courses_search(request):
                 if flag:
                     courses.append(course)
             courses = sort_by_announcement(courses)
-            print "--------------------------------------------------------------\n"
-            print courses
-            print "\n----------------------------------------------------"
+            
             if courses:
                 return render_to_response("courseware/courses_search.html", {'courses': courses})
             else:
                 return HttpResponse("No Courses Found")
+
+#Search courses by university
 @ensure_csrf_cookie
 @cache_if_anonymous
 def university_search(request,org_id=""):
@@ -121,13 +122,14 @@ def university_search(request,org_id=""):
         if query_university is not None:
             for course in allCourses:
                 university=get_course_about_section(course,'university')
-                if query_university.lower() in university.lower():
+                if (query_university.lower() in university.lower()) and (university.lower() in query_university.lower()):
                     courses.append(course) 
         if courses:
             return render_to_response("courseware/courses_search.html",{'courses':courses})
         else:
             return HttpResponse("No Courses Found")
 
+#Search courses by subject
 @ensure_csrf_cookie
 @cache_if_anonymous          
 def subject_search(request,org_id=""):
@@ -138,8 +140,10 @@ def subject_search(request,org_id=""):
         if query_university is not None:
             for course in allCourses:
                 university=get_course_about_section(course,'university')
-                if query_university.lower() in university.lower():
+                if (query_university.lower() in university.lower()) and (university.lower() in query_university.lower()):
                     courses.append(course) 
+        for course in courses:
+            print course
         if courses:
             return render_to_response("courseware/courses_search.html",{'courses':courses})
         else:

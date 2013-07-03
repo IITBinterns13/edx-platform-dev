@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+
+####################################################################################################################
+############################ Modified by Roshan Piyush #############################################################
+######################### http://github.com/piyushroshan############################################################
+#                                  IITB Interns 2013                                                               #
+####################################################################################################################
+
+
+
 #Exit if any commands return a non-zero status
 set -e
 
@@ -77,32 +86,32 @@ change_git_push_defaults() {
 
 
 
-# clone_repos() {
-#
-#     change_git_push_defaults
-#
-#     cd "$BASE"
-#
-#     if [[ -d "$BASE/edx-platform/.git" ]]; then
-#         output "Pulling edx platform"
-#         cd "$BASE/edx-platform"
-#         git pull
-#     else
-#         output "Cloning edx platform"
-#         if [[ -d "$BASE/edx-platform" ]]; then
-#             output "Creating backup for existing edx platform"
-#             mv "$BASE/edx-platform" "${BASE}/edx-platform.bak.$$"
-#         fi
-#         git clone https://github.com/edx/edx-platform.git
-#     fi
-# }
+clone_repos() {
+
+    change_git_push_defaults
+
+    cd "$BASE"
+
+    if [[ -d "$BASE/edx-platform/.git" ]]; then
+        output "Pulling edx platform"
+        cd "$BASE/edx-platform"
+        git pull
+    else
+        output "Cloning edx platform"
+        if [[ -d "$BASE/edx-platform" ]]; then
+            output "Creating backup for existing edx platform"
+            mv "$BASE/edx-platform" "${BASE}/edx-platform.bak.$$"
+        fi
+        git clone https://github.com/piyushroshan/edx-platform-dev.git edx-platform
+    fi
+}
 
 set_base_default() {  # if PROJECT_HOME not set
     # 2 possibilities: this is from cloned repo, or not
 
     # See if remote's url is named edx-platform (this works for forks too, but
     # not if the name was changed).
-    cd "$( dirname "${BASH_SOURCE[0]}" )" 
+    cd "$( dirname "${BASH_SOURCE[0]}" )"
     this_repo=$(basename $(git ls-remote --get-url 2>/dev/null) 2>/dev/null) ||
         echo -n ""
 
@@ -357,7 +366,7 @@ case `uname -s` in
         curl -L https://get.rvm.io | bash -s stable
         # Create the "edx" gemset
         source $HOME/.rvm/scripts/rvm
-	rvm install 1.9.3-p374
+        rvm install 1.9.3-p374
         rvm use --default 1.9.3-p374
     ;;
 esac
@@ -397,9 +406,11 @@ esac
 #LESS="-E" rvm install $RUBY_VER --with-readline
 
 ##----roshan
-echo "Hello----"
+echo "Installing rubygems"
+source $HOME/.rvm/scripts/rvm
+rvm install $RUBY_VER
 rvm use "$RUBY_VER@edx-platform" --create
-#rvm rubygems latest
+rvm rubygems latest
 
 output "Installing gem bundler"
 gem install bundler
@@ -530,8 +541,6 @@ pip install -r $BASE/edx-platform/requirements/edx/pre.txt
 output "Installing edX requirements"
 # Install prereqs
 cd $BASE/edx-platform
-rvm use "$RUBY_VER@edx-platform" --create
-rake install_prereqs
 
 # Final dependecy
 output "Finishing Touches"
@@ -540,13 +549,12 @@ pip install argcomplete
 cd $BASE/edx-platform
 gem install bundler
 bundle install
-rake install_prereqs
 
 mkdir -p "$BASE/log" || true
 mkdir -p "$BASE/db" || true
 mkdir -p "$BASE/data" || true
 
-
+#rake install_prereqs
 #rake django-admin[syncdb]
 #rake django-admin[migrate]
 #rake django-admin[update-templates]
@@ -572,7 +580,7 @@ cat<<END
         $ workon edx-platform
 
    To initialize Django
-
+        $ rake install_prereqs
         $ rake django-admin[syncdb]
         $ rake django-admin[migrate]
 
