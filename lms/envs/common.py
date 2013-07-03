@@ -297,7 +297,7 @@ CONTENTSTORE = None
 
 CODE_JAIL = {
     # Path to a sandboxed Python executable.  None means don't bother.
-    'python_bin': '/home/vivek/.virtualenvs/edx-platform-sandbox/bin/python',
+    'python_bin': '/home/edx/.virtualenvs/edx-platform-sandbox/bin/python',
     # User to run as in the sandbox.
     'user': 'sandbox',
 
@@ -316,7 +316,7 @@ CODE_JAIL = {
 #   COURSES_WITH_UNSAFE_CODE = [
 #       r"Harvard/XY123.1/.*"
 #   ]
-COURSES_WITH_UNSAFE_CODE = [r"IITB/CS008/.*" ]
+COURSES_WITH_UNSAFE_CODE = [r"IITBX/IAT102/.*"]
 
 ############################ SIGNAL HANDLERS ################################
 # This is imported to register the exception signal handling that logs exceptions
@@ -351,8 +351,13 @@ ADMINS = (
     ('IITBX Admins', 'admin@iitbx.org'),
 )
 MANAGERS = ADMINS
+
+
 DEFAULT_FEEDBACK_EMAIL = 'kushal13@cse.iitb.ac.in'
 SERVER_EMAIL = 'kushal13@cse.iitb.ac.in'
+
+
+
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.cse.iitb.ac.in'
 EMAIL_HOST_USER ='kushal13@cse.iitb.ac.in'
