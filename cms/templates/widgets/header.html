@@ -2,13 +2,9 @@
 <div class="wrapper-header wrapper" id="view-top">
   <header class="primary" role="banner">
 
-<<<<<<< HEAD
-    <div class="wrapper wrapper-left ">
-      <h1 class="branding"><a href="/">${settings.PLATFORM_NAME} Studio</a></h1>
-=======
+
     <div class="wrapper wrapper-l">
       <h1 class="branding"><a href="/"><img src="/static/img/logo-edx-studio.png" alt="edX Studio" /></a></h1>
->>>>>>> b3723b1a224aa606c243622e11e3b951278bf6c4
 
       % if context_course:
       <% ctx_loc = context_course.location %>
@@ -126,18 +122,9 @@
             <div class="wrapper wrapper-nav-sub">
               <div class="nav-sub">
                 <ul>
-<<<<<<< HEAD
                   <li class="nav-item nav-account-dashboard"><a href="/">My Courses</a></li>
                   <li class="nav-item nav-account-help"><a href="STUDIO_HELP" rel="external">Studio Help</a></li>
                   <li class="nav-item nav-account-signout"><a class="action action-signout" href="${reverse('logout')}">Sign Out</a></li>
-=======
-                  <li class="nav-item nav-account-dashboard">
-                    <a href="/">My Courses</a>
-                  </li>
-                  <li class="nav-item nav-account-signout">
-                    <a class="action action-signout" href="${reverse('logout')}">Sign Out</a>
-                  </li>
->>>>>>> b3723b1a224aa606c243622e11e3b951278bf6c4
                 </ul>
               </div>
             </div>
