@@ -9,9 +9,12 @@ html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 10
 html, button, input, select, textarea { font-family: sans-serif; color: #222; }
 body { margin: 0; font-size: 1em; line-height: 1.4; }
 
+<<<<<<< HEAD
 ::-moz-selection { background: royalblue; color: #fff; text-shadow: none; }
 ::selection { background: royalblue; color: #fff; text-shadow: none; }
 
+=======
+>>>>>>> b3723b1a224aa606c243622e11e3b951278bf6c4
 a { color: #00e; }
 a:visited { color: #551a8b; }
 a:hover { color: #06e; }
