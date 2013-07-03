@@ -356,15 +356,14 @@ ADMINS = (
 MANAGERS = ADMINS
 
 
-DEFAULT_FEEDBACK_EMAIL = 'kushal13@cse.iitb.ac.in'
-SERVER_EMAIL = 'kushal13@cse.iitb.ac.in'
+
 
 
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.cse.iitb.ac.in'
-EMAIL_HOST_USER ='kushal13@cse.iitb.ac.in'
-EMAIL_PASSWORD = "mailmeto"
+EMAIL_HOST_USER ='ajayb@cse.iitb.ac.in'
+EMAIL_PASSWORD = "ajayb*"
 EMAIL_PORT = 25
 
 
